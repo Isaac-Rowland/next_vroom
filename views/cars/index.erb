@@ -1,0 +1,52 @@
+<h1>NextVroom</h1>
+
+
+<% if logged_in? %>
+  <h3>Welcome back <%= current_user()['first_name'] %></h3>
+  <form action="/sessions" method="POST">
+  <input type="hidden" name= "_method" value = "delete">
+  <button>Logout</button>
+  </form>
+
+  <a href="/cars/new">Add a car</a>
+
+  <% cars.each do |car| %>
+    <p>Car brand: <%= car['brand']%></p>
+    <p>Car model: <%= car['model']%></p>
+    <p>Car year: <%= car['year']%></p>
+    <a href="/cars/<%= car['id']%>/edit">Edit</a>
+
+    <form action="/delete/<%= car['id']%>" method ="POST">
+    <input type="hidden" name="_method" value="delete">
+    <button>Delete</button> 
+    </form>
+
+  <% end %>
+  <% else %>
+  <h3>Welcome</h3>
+  <span class="users">
+  <a href="/sign_up">Sign up</a>
+  <a href="/login">Login</a>
+  </span>
+
+  <span class = "staff_picks">
+  <p>This month's staff pick's</p>
+  <ol>
+  <li>Rover mini <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Morris_Mini-Minor_1959_%28621_AOK%29.jpg/280px-Morris_Mini-Minor_1959_%28621_AOK%29.jpg" alt=""></li>
+  <li>Land cruiser 70 series<img src="https://assets.whichcar.com.au/image/upload/s--B7EE7nO5--/ar_2.304921968787515,c_fill,f_auto,q_auto:good/v1/archive/whichcar/2020/09/11/-1/TROOPY-MAIN-1.jpg" alt=""></li>
+  <li>Tesla model X Plaid<img src="https://www.gtopcars.com/wp-content/uploads/2021/07/Tesla-Model-X-Redesign-2022.jpg" alt=""></li>
+  <li><img src="" alt=""></li>
+  <li><img src="" alt=""></li>
+  <li><img src="" alt=""></li>
+  <li><img src="" alt=""></li>
+  <li><img src="" alt=""></li>
+  <li><img src="" alt=""></li>
+  <li><img src="" alt=""></li>
+  </ol>
+</span>
+
+<% end %>
+
+  
+
+  
