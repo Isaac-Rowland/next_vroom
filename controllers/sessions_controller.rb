@@ -11,10 +11,17 @@ post '/sessions' do
     session['user_id'] = user['id']
 
     redirect "/user/#{user['id']}/cars"
+  else
+    redirect '/sessions/not_found'
   end
+end
+
+get '/sessions/not_found' do
+  erb :'sessions/not_found'
 end
 
 delete '/sessions' do 
   session['user_id'] = nil
   redirect '/'
 end
+

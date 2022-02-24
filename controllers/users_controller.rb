@@ -8,18 +8,13 @@ post '/users' do
   email = params["email"]
   password = params["password"]
   create_user(first_name, last_name, email, password)
-  redirect '/'
+  redirect '/login'
 end
 
 get '/user/:id/cars' do
   user_id = params['id']
-  # car_pic = HTTParty.get("http://www.carimagery.com/api.asmx/GetImageUrl?searchTerm=ford+fiesta").parsed_response
-  cars = users_cars(user_id)
-  # brand, model and year from each car to then get picture
-
-  
+  cars = users_cars(user_id)  
   erb :'users/cars', locals: {
     cars: cars, 
-    # car_pic: car_pic["string"]
   }
 end

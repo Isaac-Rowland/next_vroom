@@ -1,19 +1,25 @@
-<h2>Edit your car here</h2>
+<header>
+<h1>NextVroom</h1>
+</header>
 
-<form action="/update/<%=car['id']%>" method= "POST">
-<input type="hidden" name="_method" value="put">
-  <span class="Edit">
+<div>
+  <form action="/update/<%=car['id']%>" method= "POST" class="edit_car">
+    <input type="hidden" name="_method" value="put">
+
+    <h2>Edit your car here</h2>
+
     <label for="">You are editing</label>
 
     <label for="">Car brand: </label>
-    <input type="text" name="brand" value="<%= car['brand']%>">
+    <input required type="text" name="brand" value="<%= car['brand']%>">
 
     <label for="">Car model:</label>
-    <input type="text" name="model" value="<%= car['model']%>">
+    <input required type="text" name="model" value="<%= car['model']%>">
 
     <label for="">Car year:</label>
-    <input type="text" name="year" value="<%= car['year']%>">
-  </span>
-  <button>Update this car</button>
+    <input required type="text" name="year" value="<%= car['year']%>">
 
-</form>
+    <button class="button">Update this car</button>
+
+  </form>
+</div>

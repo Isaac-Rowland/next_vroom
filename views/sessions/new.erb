@@ -1,10 +1,17 @@
-<h2>Login here</h2>
-<form action="/sessions" method="POST">
-  <label for="">Email:</label>
-  <input type="text"name="email">
+<header>
+<h1>NextVroom</h1>
+</header>
 
-  <label for="">Password:</label>
-  <input type="password"name="password">
+<div>
+  <form action="/sessions" method="POST" class="sign_in">
+    <h2>Login here</h2>
+    
+    <label for="">Email:</label>
+    <input required type="text"name="email">
 
-  <button>Log in</button>
-</form>
+    <label for="">Password:</label>
+    <input required type="password"name="password">
+
+    <button class="button">Log in</button>
+  </form>
+</div>

@@ -1,16 +1,22 @@
-<h3>Add a car you would like to look at</h3>
+<header>
+  <h1>NextVroom</h1>
+</header>
 
-<form action="/car" method="POST">
-  <input type="hidden" name="user_id" value=<%= user_id%>>
-  <label for="">Car brand:</label>
-  <input type="text" name="brand">
+<div>
+  <form action="/car" method="POST" class="add_car">
+    <input type="hidden" name="user_id" value=<%= user_id%>>
+    <h2>Add a car</h2>
+    
+    <label for="">Car brand:</label>
+    <input required type="text" name="brand">
 
-  <label for="">Car model:</label>
-  <input type="text" name="model">
+    <label for="">Car model:</label>
+    <input required type="text" name="model">
 
-  <label for="">Car year:</label>
-  <input type="text" name="year">
+    <label for="">Car year:</label>
+    <input required type="text" name="year">
 
-  <button>Add car</button>
+    <button class="button">Add car</button>
 
-</form>
+  </form>
+</div>

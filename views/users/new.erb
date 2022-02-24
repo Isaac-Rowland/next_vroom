@@ -1,17 +1,22 @@
-<h1>Sign up</h1>
+<header>
+  <h1>NextVroom</h1>
+</header>
 
-  <form action="/users" method="POST">
-  <label for="">First name:</label>
-  <input type="text" name = "first_name">
+<div>
+  <form action="/users" method="POST" class="sign_up">
+    <h2>Sign up</h2>
+    <label for="">First name:</label>
+    <input required type="text" name = "first_name">
 
-  <label for="">Last name:</label>
-  <input type="text" name = "last_name">
+    <label for="">Last name:</label>
+    <input required type="text" name = "last_name">
 
-  <label for="">Email:</label>
-  <input type="text" name = "email">
+    <label for="">Email:</label>
+    <input required type="text" name = "email">
 
-  <label for="">Password:</label>
-  <input type="password" name = "password">
+    <label for="">Password:</label>
+    <input required type="password" name = "password">
 
-  <button>Create account</button>
-</form>
+    <button class="button">Create account</button>
+  </form>
+</div>
