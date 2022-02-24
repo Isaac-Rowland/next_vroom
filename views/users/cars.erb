@@ -1,0 +1,25 @@
+<h3>Welcome back <%= current_user()['first_name'] %></h3>
+  <form action="/sessions" method="POST">
+  <input type="hidden" name= "_method" value = "delete">
+  <button>Logout</button>
+  </form>
+
+  
+  <a href="/cars/new?user_id=<%= current_user()['id'] %>">Add a car</a>
+
+  <% cars.each do |car| %>
+    <p>Car brand: <%= car['brand']%></p>
+    <p>Car model: <%= car['model']%></p>
+    <p>Car year: <%= car['year']%></p>
+    <% search_term = "#{car['brand']}+#{car['model']}+#{car['year']}"
+    car_response = HTTParty.get("http://www.carimagery.com/api.asmx/GetImageUrl?searchTerm=#{search_term}").parsed_response
+    car_pic = car_response["string"]
+    %>
+    <img src="<%= car_pic %>" alt="">
+    <a href="/cars/<%= car['id']%>/edit">Edit</a>
+
+    <form action="/delete/<%= car['id']%>" method ="POST">
+    <input type="hidden" name="_method" value="delete">
+    <button>Delete</button> 
+    </form>
+<% end %>

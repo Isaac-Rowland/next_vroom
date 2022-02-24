@@ -1,19 +1,22 @@
 get '/' do
   cars = all_cars()
   erb :'cars/index', locals: {
-    cars: cars
+    cars: cars, 
   }
 end
-
 get '/cars/new' do 
-  erb :'cars/new'
+  user_id = params['user_id']
+  erb :'cars/new', locals: {
+    user_id: user_id
+  }
 end
 
 post '/car' do
   brand = params['brand']
   model = params['model']
   year = params['year']
-  add_car(brand, model, year)
+  user_id = params['user_id']
+  add_car(brand, model, year, user_id)
   redirect '/'
 end
 
@@ -40,4 +43,6 @@ delete '/delete/:id' do
   delete_car(id)
   redirect '/'
 end
-# car_pic = HTTParty.get("https://www.carimagery.com/api.asmx/GetImageUrl?searchTerm=#{brand}+#{model}+#{year}").parsed_response  &&&& <img src="<%= car_pic %>" alt="">
+# car_pic = HTTParty.get("http://www.carimagery.com/api.asmx/GetImageUrl?searchTerm=ford+fiesta").parsed_response 
+# car_pic: car_pic['string']["__content__"]
+# search_term = #{'brand'}+#{'model'}+#{year}

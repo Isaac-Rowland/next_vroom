@@ -10,7 +10,7 @@ post '/sessions' do
   if user && BCrypt::Password.new(user['password_digest']) == params['password']
     session['user_id'] = user['id']
 
-    redirect '/'
+    redirect "/user/#{user['id']}/cars"
   end
 end
 
